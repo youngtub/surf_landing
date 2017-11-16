@@ -137,7 +137,13 @@ var colors = {
       }, () => {
         console.log('project in state', this.state.selectedProject)
       })
-    });
+    })
+    .on('mouseover' d => {
+      this.setState({
+        selectedProject: d,
+        display: 'project'
+      })
+    })
 
     // var movement = setInterval(function(){
     //   var randNum = Math.floor(Math.random()*100)/100;
