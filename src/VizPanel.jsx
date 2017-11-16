@@ -138,7 +138,7 @@ var colors = {
         console.log('project in state', this.state.selectedProject)
       })
     })
-    .on('mouseover' d => {
+    .on('mouseover', d => {
       this.setState({
         selectedProject: d,
         display: 'project'
