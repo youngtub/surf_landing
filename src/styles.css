@@ -1,0 +1,66 @@
+body {
+  margin: 0;
+  /*padding: 10px;*/
+  /*height: 100%;*/
+  font-family: 'Montserrat', sans-serif;
+}
+
+.main {
+  background: linear-gradient(#dbdde0, #1c3168);
+  /*background-repeat: no-repeat;*/
+}
+
+@font-face {
+  font-family: 'Smaragd';
+  src: url("Smaragd.ttf") format("opentype");
+}
+
+.Balmain {
+  font-family: 'Smaragd';
+  font-size: 50px;
+  font-weight: 200;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.header {
+  padding: 1%;
+  background-color: #dbdde0;
+}
+
+hr {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  text-align: center;
+  align: center;
+  /*width: 75%;*/
+}
+
+.menu {
+  position: fixed;
+}
+
+#infoPanel {
+  /*grid-column: 2;*/
+  height: 60vh;
+  width: 103%;
+  border: solid grey 1px;
+  border-radius: 10px;
+  /*text-align: center;*/
+  /*display: grid;*/
+  /*grid-template-columns: 50% 50%;*/
+  /*grid-template-rows: 5% 20% 5% 30%;*/
+  background-color: rgba(192, 197, 206, 0.5)
+}
+
+.ant-carousel .slick-slide {
+  text-align: center;
+  height: 30vh;
+  width: 30vw;
+  /*line-height: 160px;*/
+  background: #364d79;
+  /*overflow: hidden;*/
+}
+
+.ant-carousel .slick-slide h3 {
+  color: #fff;
+}
