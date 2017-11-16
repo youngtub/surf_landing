@@ -201,7 +201,7 @@ const jsonData = {
     {"name": 'Movies', "description": 'Similar movie search engine', "data": ['The Movie DB (TMDB)'], "url": "https://surfmovies.herokuapp.com/", "thumbnail": "http://www.mygraphichunt.com/wp-content/uploads/2015/09/wpid-cinema-with-screen-and-seats_23-2147506328-650x650.jpg" },
     {"name": 'Reddit', "description": 'Surf subreddits, comments, and more!', "data": ['Reddit API'], "thumbnail": "https://ichef-1.bbci.co.uk/news/1024/media/images/62071000/png/_62071291_reddit-alien.png" },
     {"name": 'Songs', "description": 'Explore your music library like never before', "data": ['Spotify', 'TheEchoNest'], "thumbnail": "http://icons.iconarchive.com/icons/webalys/kameleon.pics/512/Cloud-Music-icon.png" },
-    {"name": 'Comments', "description": 'Because linear comments can be so limiting...', "data": ['Anyone'], "url": '' "thumbnail": "http://www.iconarchive.com/download/i60499/custom-icon-design/pretty-office-9/comment-edit.ico" },
+    {"name": 'Comments', "description": 'Because linear comments can be so limiting...', "data": ['Anyone'], "url": '', "thumbnail": "http://www.iconarchive.com/download/i60499/custom-icon-design/pretty-office-9/comment-edit.ico" },
     {"name": 'YouTube', "description": 'Surf related YouTube videos', "data": ['YouTube API'], "thumbnail": "https://cdn1.iconfinder.com/data/icons/iconza-circle-social/64/697037-youtube-512.png" },
     {"name": 'Playgrounds', "description": 'Check out the platform', "data": ['Null'], "url": "https://surfplaygrounds.herokuapp.com/", "thumbnail": "https://coconutgirlwireless.files.wordpress.com/2016/01/surf-icon.png" }
   ],
