@@ -66,11 +66,18 @@ const InfoPanel = (props) => {
       <Row>
         <Col md={4}></Col>
         <Col md={4}>
-          <a href={props.selectedProject.url || ''}>
-          <Button type="primary">
-            Go<Icon type="right" />
-          </Button>
-          </a>
+          {props.selectedProject.url ? (
+            <a href={props.selectedProject.url}>
+              <Button type="primary">
+                Go<Icon type="right" />
+              </Button>
+            </a>
+          ) : (
+            <Button>
+              Coming Soon
+            </Button>
+          )
+        }
           {props.selectedProject.name === 'Comments' ? (
             <div>
               <br/>
