@@ -5,6 +5,14 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+a {
+  color: black;
+}
+
+a:hover {
+  color: white;
+}
+
 .main {
   background: linear-gradient(#dbdde0, #1c3168);
   /*background-repeat: no-repeat;*/

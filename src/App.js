@@ -2,13 +2,29 @@ import React, { Component } from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
 import { Card} from 'antd';
 import ScrollableAnchor from 'react-scrollable-anchor';
-
+import ProjectsListView from './ProjectsListView'
 import its from './images/its.png';
 import VizPanel from './VizPanel.jsx';
 import Menu from './Menu.jsx';
-import Carousel from './AntCarousel.jsx';
+import About from './About.jsx';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      display: 'list',
+      radioValue: 1
+    }
+  }
+
+  handleRadioChange = (val) => {
+    var newDisplay; val === 1 ? newDisplay = 'list' : newDisplay = 'surf'
+    this.setState({
+      radioValue: val,
+      display: newDisplay
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -23,21 +39,21 @@ class App extends Component {
 
             <Row>
               <br/>
-              <h4 style={{paddingLeft: '1%'}}>Fluid, intuitive, interactive data visualization platform</h4>
+              <h4 style={{paddingLeft: '1%'}}>"Visualizing Similarity" - Fluid & Interactive Data Visualization Platform</h4>
               <br/><br/>
             </Row>
-
-
             <hr/>
-
             <br/><br/>
             <Row>
-              <h3 style={centered}>Current Projects</h3>
-              <Col md={2}>
+              <Col md={1}>
                 <Menu className='menu'/>
               </Col>
-              <Col md={10}>
-                <VizPanel />
+              <Col md={11}>
+                {this.state.display === 'list' ? (
+                  <ProjectsListView handleRadioChange={this.handleRadioChange} radioValue={this.state.radioValue}/>
+                ) : (
+                  <VizPanel handleRadioChange={this.handleRadioChange} radioValue={this.state.radioValue}/>
+                )}
               </Col>
             </Row>
 
@@ -46,10 +62,9 @@ class App extends Component {
             </ScrollableAnchor>
             <Row style={aboutStyle}>
               <h2 style={centered}>About</h2>
-              <br/>
-              <Col md={3}></Col>
-              <Col md={6}>
-                <Carousel />
+              <br/><br/><br/>
+              <Col md={12}>
+                <About />
               </Col>
               <Col md={3}></Col>
             </Row>
@@ -67,8 +82,8 @@ const cardStyle = {
 const aboutStyle = {
   backgroundColor: '#dbdde0',
   padding: '2%',
-  textAlign: 'center',
-  height: '50vh'
+  // textAlign: 'center',
+  // height: '100vh'
 }
 
 const centered = {

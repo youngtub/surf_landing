@@ -74,7 +74,7 @@ const InfoPanel = (props) => {
             </a>
           ) : (
             <Button>
-              Coming Soon
+              In Dev
             </Button>
           )
         }

@@ -1,7 +1,7 @@
 import React from 'react';
 import * as d3 from 'd3';
 import InfoPanel from './InfoPanel';
-import {Grid, Row, Col} from 'react-bootstrap';
+import {Grid, Row, Col, ButtonToolbar, ToggleButtonGroup, ToggleButton} from 'react-bootstrap';
 import $ from 'jquery';
 import axios from 'axios';
 
@@ -55,7 +55,7 @@ class VizPanel extends React.Component {
       //   return d.value > 0 ? d.value*2 : 1;
       // })
       )
-    .force("center", d3.forceCenter(width/2 + 40, height/2))
+    .force("center", d3.forceCenter(width/2 + 100, height/2))
     // .force("gravity", d3.forceManyBody().strength(-50))
     // .force("distance", d3.forceManyBody(100))
 
@@ -128,8 +128,9 @@ var colors = {
       let proj = d.name;
 
       // $(`.${artist.split(' ').join('')}`).css('display', 'inline');
+
       // $('.link').css('display', 'none')
-      $(`.${proj}.link`).css('display', 'inline')
+      // $(`.${proj}.link`).css('display', 'inline')
 
       this.setState({
         selectedProject: d,
@@ -138,12 +139,12 @@ var colors = {
         console.log('project in state', this.state.selectedProject)
       })
     })
-    .on('mouseover', d => {
-      this.setState({
-        selectedProject: d,
-        display: 'project'
-      })
-    })
+    // .on('mouseover', d => {
+    //   this.setState({
+    //     selectedProject: d,
+    //     display: 'project'
+    //   })
+    // })
 
     // var movement = setInterval(function(){
     //   var randNum = Math.floor(Math.random()*100)/100;
@@ -165,6 +166,20 @@ var colors = {
   render() {
     return (
         <Grid fluid={true}>
+
+          <Row>
+            <Col md={2}>
+            <ButtonToolbar>
+              <ToggleButtonGroup name='view' type="radio" value={this.props.radioValue} onChange={this.props.handleRadioChange}>
+                <ToggleButton value={1}><p onClick={() => this.props.handleRadioChange(1)}>List</p></ToggleButton>
+                <ToggleButton value={2}><p onClick={() => this.props.handleRadioChange(2)}>Surf</p></ToggleButton>
+              </ToggleButtonGroup>
+            </ButtonToolbar>
+            </Col>
+            <Col md={10}>
+              <h3 style={headerStyle}>Current Projects</h3>
+            </Col>
+          </Row>
 
           <Row>
 
@@ -198,12 +213,12 @@ const border = {
 const jsonData = {
   "nodes": [
     {"name": 'InTheStudio', "description": 'Collaborations between Rappers & Producers', "data": ['Spotify', 'RapGenius'], "url": "https://inthestudio.herokuapp.com/", "thumbnail": "http://animalkingdomrecordings.com/wp-content/uploads/2017/10/recording-console-clipart.png" },
-    {"name": 'Movies', "description": 'Similar movie search engine', "data": ['The Movie DB (TMDB)'], "url": "https://surfmovies.herokuapp.com/", "thumbnail": "http://www.mygraphichunt.com/wp-content/uploads/2015/09/wpid-cinema-with-screen-and-seats_23-2147506328-650x650.jpg" },
-    {"name": 'Reddit', "description": 'Surf subreddits, comments, and more!', "data": ['Reddit API'], "thumbnail": "https://ichef-1.bbci.co.uk/news/1024/media/images/62071000/png/_62071291_reddit-alien.png" },
-    {"name": 'Songs', "description": 'Explore your music library like never before', "data": ['Spotify', 'TheEchoNest'], "thumbnail": "http://icons.iconarchive.com/icons/webalys/kameleon.pics/512/Cloud-Music-icon.png" },
-    {"name": 'Comments', "description": 'Because linear comments can be so limiting...', "data": ['Anyone'], "url": '', "thumbnail": "http://www.iconarchive.com/download/i60499/custom-icon-design/pretty-office-9/comment-edit.ico" },
-    {"name": 'YouTube', "description": 'Surf related YouTube videos', "data": ['YouTube API'], "thumbnail": "https://cdn1.iconfinder.com/data/icons/iconza-circle-social/64/697037-youtube-512.png" },
-    {"name": 'Playgrounds', "description": 'Check out the platform', "data": ['Null'], "url": "https://surfplaygrounds.herokuapp.com/", "thumbnail": "https://coconutgirlwireless.files.wordpress.com/2016/01/surf-icon.png" }
+    {"name": 'Movies', "description": 'Explore movies by similarity', "data": ['The Movie DB (TMDB)'], "url": "https://surfmovies.herokuapp.com/", "thumbnail": "http://www.mygraphichunt.com/wp-content/uploads/2015/09/wpid-cinema-with-screen-and-seats_23-2147506328-650x650.jpg" },
+    {"name": 'Reddit', "description": 'Browse subreddits, comments, and more!', "data": ['Reddit API'], "thumbnail": "https://ichef-1.bbci.co.uk/news/1024/media/images/62071000/png/_62071291_reddit-alien.png" },
+    {"name": 'Songs', "description": 'Surf your music library', "data": ['Spotify', 'TheEchoNest'], "thumbnail": "http://icons.iconarchive.com/icons/webalys/kameleon.pics/512/Cloud-Music-icon.png" },
+    {"name": 'Comments', "description": 'Non-linear comments widget', "data": ['Anyone'], "url": 'https://surfcomments.herokuapp.com/', "thumbnail": "http://www.iconarchive.com/download/i60499/custom-icon-design/pretty-office-9/comment-edit.ico" },
+    {"name": 'YouTube', "description": 'Explore related YouTube videos', "data": ['YouTube API'], "thumbnail": "https://cdn1.iconfinder.com/data/icons/iconza-circle-social/64/697037-youtube-512.png" },
+    {"name": 'Playgrounds', "description": 'Play around with the platform', "data": ['Dummy'], "url": "https://surfplaygrounds.herokuapp.com/", "thumbnail": "https://coconutgirlwireless.files.wordpress.com/2016/01/surf-icon.png" }
   ],
   "links": [
     {"source": 0, "target": 1, "value": 2 },
@@ -230,5 +245,9 @@ const jsonData = {
   ]
 }
 
+const headerStyle = {
+  textAlign:'center',
+  marginLeft: '-45%'
+}
 
 export default VizPanel;
