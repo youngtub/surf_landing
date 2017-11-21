@@ -16,7 +16,7 @@ const About = (props) => {
       <Col md={6} style={leftColStyle}>
         <br/><br/><br/>
         <h3>Similarity-based visualization</h3>
-        <h5>...</h5>
+        <h5></h5>
       </Col>
       <Col md={6}>
         <img src={mov} height={400} width={500} />
@@ -30,10 +30,10 @@ const About = (props) => {
       <Col md={4}>
         <img src={sim} height={300} width={450} />
       </Col>
-      <Col md={6} style={rightColStyle}>
+      <Col md={4} style={rightColStyle}>
         <br/><br/><br/>
         <h3>Simulation > Interactive Visualization</h3>
-        <h5>Unlike standard DAG's (directed acyclic graphs), ...</h5>
+        <h5>Unlike a DAG's (directed acyclic graphs), Surf sets data in motion and invites fluid, intuitive interaction </h5>
       </Col>
     </Row>
 
@@ -63,7 +63,7 @@ const About = (props) => {
           <Col md={6} style={rightColStyle}>
             <br/><br/><br/>
             <h3>A lot more fun than feeds/lists/graphs!</h3>
-            <h5>text...</h5>
+            <h5></h5>
           </Col>
         </Row>
 
